@@ -7,6 +7,10 @@ export default class addEmp
         this.middleNameTF=page.getByPlaceholder("Middle Name");
         this.lastNameTF=page.getByPlaceholder("Last Name")
         this.loginDetailRB=page.locator(".oxd-switch-wrapper");
+        this.usernameTF=page.getByRole('textbox').nth(5)
+        this.passwordTF=page.locator('input[type="password"]').first()
+        this.confirmPwdTF=page.locator('input[type="password"]').nth(1)
+        this.saveBTN=page.getByRole('button',{name:" Save "})
     }
     async newEmp(firstname,middlename,lastname,empid)
         {
@@ -15,4 +19,11 @@ export default class addEmp
             await this.lastNameTF.fill(lastname)
             await this.loginDetailRB.click()
         }
+    async credentials(username,password,confirmPwd)
+    {
+        await this.usernameTF.fill(username)
+        await this.passwordTF.fill(password)
+        await this.confirmPwdTF.fill(confirmPwd)
+        await this.saveBTN.click()
+    }
 }

@@ -10,8 +10,8 @@ test("Add employee",async({page})=>{
     let pm=new PIMpage(page);
     let ae=new addEmp(page)
     await lp.login("Admin","admin123");
-    // await page.waitForEvent('load')
     await dp.PIMclick()
     await pm.addEmp()
-    await ae.newEmp("Alex","Rob","Fred","2345")
+    await ae.newEmp("Alex","Rob","Fred","12345678")
+    await ae.credentials("Alex","123456","12345678")
 })
