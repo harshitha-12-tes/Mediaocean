@@ -3,7 +3,7 @@
 
 import {test,expect} from "@playwright/test"
 import Home from "../POM/Home.page"
-import Pim from "../POM/Pim.page"
+import Pim from "../POM/Pim1.page"
 import path from "path"
 
 
