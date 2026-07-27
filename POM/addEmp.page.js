@@ -12,7 +12,7 @@ export default class addEmp
         this.confirmPwdTF=page.locator('input[type="password"]').nth(1)
         this.saveBTN=page.getByRole('button',{name:" Save "})
     }
-    async newEmp(firstname,middlename,lastname,empid)
+    async newEmp(firstname,middlename,lastname)
         {
             await this.firstNameTF.fill(firstname)
             await this.middleNameTF.fill(middlename)
@@ -22,8 +22,8 @@ export default class addEmp
     async credentials(username,password,confirmPwd)
     {
         await this.usernameTF.fill(username)
-        await this.passwordTF.fill(password)
-        await this.confirmPwdTF.fill(confirmPwd)
+        await this.passwordTF.fill(String(password))
+        await this.confirmPwdTF.fill(String(confirmPwd))
         await this.saveBTN.click()
     }
 }

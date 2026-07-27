@@ -10,6 +10,6 @@ test("Add employee", async ({
   await loginPage.login("Admin", "admin123");
   await dashboardPage.PIMclick();
   await pimPage.addEmp();
-  await addEmpPage.newEmp("Alex", "Rob", "Fred", "12345678");
+  await addEmpPage.newEmp("Alex", "Rob", "Fred");
   await addEmpPage.credentials("Alex", "123456", "12345678");
 });
