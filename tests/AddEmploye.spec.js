@@ -1,17 +1,15 @@
-import {test} from "@playwright/test"
-import LoginPage from "../POM/LoginPage.page"
-import dashPage from "../POM/Dashboard.page"
-import PIMpage from "../POM/PIM.page"
-import addEmp from "../POM/addEmp.page"
+import {test} from "../Fixtures/Object.js"
 
-test("Add employee",async({page})=>{
-    let lp=new LoginPage(page);
-    let dp=new dashPage(page);
-    let pm=new PIMpage(page);
-    let ae=new addEmp(page)
-    await lp.login("Admin","admin123");
-    // await page.waitForEvent('load')
-    await dp.PIMclick()
-    await pm.addEmp()
-    await ae.newEmp("Alex","Rob","Fred","2345")
-})
+test("Add employee", async ({
+  loginPage,
+  dashboardPage,
+  pimPage,
+  addEmpPage
+}) => {
+
+  await loginPage.login("Admin", "admin123");
+  await dashboardPage.PIMclick();
+  await pimPage.addEmp();
+  await addEmpPage.newEmp("Alex", "Rob", "Fred", "12345678");
+  await addEmpPage.credentials("Alex", "123456", "12345678");
+});
