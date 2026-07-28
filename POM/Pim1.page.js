@@ -11,6 +11,7 @@ class Pim{
         this.firstNameLoc=page.getByPlaceholder('First Name');
         this.middleNameLoc=page.getByPlaceholder("Middle Name");
         this.lastNameLoc=page.getByPlaceholder('Last Name');
+        this.id=page.locator('input[class="oxd-input oxd-input--active"]');
         this.saveButton=page.getByRole("button",{name:" Save "});
 
         //LOCATORS FOR SEARCHING THE EMPLOYEE
@@ -26,6 +27,7 @@ class Pim{
         await this.firstNameLoc.fill(firstName)
         await this.middleNameLoc.fill(middleName)
         await this.lastNameLoc.fill(lastName)
+        await this.id.last().type(`${Math.round(Math.random()*10*8)}`);
         console.log(await this.page.locator('input[class="oxd-input oxd-input--active"]').last().textContent())
         await this.saveButton.click();
         
