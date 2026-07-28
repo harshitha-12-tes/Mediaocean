@@ -16,7 +16,6 @@ test("adding vacancies",async({page})=>{
 
         const RecruitmentPage=new Recruitment(page);
         await RecruitmentPage.add_vacancy(data);
-        await page.waitForTimeout(1000);
         await RecruitmentPage.vacancies.click();
         await page.locator('div[role="row"]').filter({hasText:data.vname,exact:true}).waitFor()
         await expect(await page.locator('div[role="row"]').filter({hasText:data.vname,exact:true})).toBeTruthy();
