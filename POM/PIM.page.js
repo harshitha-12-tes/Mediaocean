@@ -3,7 +3,7 @@ export default class PIMpage
     constructor(page)
     {
         this.page=page;
-        this.addempBTN=page.getByRole('link',{name:'Add Employee'})
+        this.addempBTN=page.getByText("Add Employee")
     }
 
     async addEmp()
